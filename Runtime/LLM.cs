@@ -418,19 +418,21 @@ namespace LLMUnity
         {
             started = false;
             failed = false;
-
+            
             try
             {
                 ValidateParameters();
                 string modelPath = GetValidatedModelPath();
                 List<string> loraPaths = GetValidatedLoraPaths();
 
+                Destroy();
                 CreateLib();
                 await CreateServiceAsync(modelPath, loraPaths);
             }
             catch (LLMUnityException ex)
             {
                 LLMUnitySetup.LogError(ex.Message);
+                Destroy();
                 failed = true;
                 return;
             }
@@ -826,7 +828,15 @@ namespace LLMUnity
             {
                 try
                 {
-                    llmService?.Dispose();
+                    if (llmService != null)
+                    {
+                        llmService.Dispose();
+                    }
+                    else
+                    {
+                        llmlib?.Dispose();
+                    }
+                    llmService = null;
                     llmlib = null;
                     started = false;
                     failed = false;

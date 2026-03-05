@@ -302,6 +302,8 @@ namespace UndreamAI.LlamaLib
         public int LLM_Status_Code() => CallWithStatus(() => LLM_Status_Code_Internal());
         public IntPtr LLM_Status_Message() => CallWithStatus(() => LLM_Status_Message_Internal());
         public int LLM_Embedding_Size(IntPtr llm) => CallWithStatus(() => LLM_Embedding_Size_Internal(llm));
+        // Constructor paths handle their own status/fallback logic internally.
+        // Wrapping them with CallWithStatus can fail early due to stale global status from a previous failed startup.
         public IntPtr LLMService_Construct(
             string modelPath,
             int numSlots = 1,
@@ -313,8 +315,8 @@ namespace UndreamAI.LlamaLib
             bool embeddingOnly = false,
             int loraCount = 0,
             IntPtr loraPaths = default
-        ) => CallWithStatus(() => LLMService_Construct_Internal(modelPath, numSlots, numThreads, numGpuLayers, flashAttention, contextSize, batchSize, embeddingOnly, loraCount, loraPaths));
-        public IntPtr LLMService_From_Command(string paramsString) => CallWithStatus(() => LLMService_From_Command_Internal(paramsString));
+        ) => LLMService_Construct_Internal(modelPath, numSlots, numThreads, numGpuLayers, flashAttention, contextSize, batchSize, embeddingOnly, loraCount, loraPaths);
+        public IntPtr LLMService_From_Command(string paramsString) => LLMService_From_Command_Internal(paramsString);
         public IntPtr LLMService_Command(IntPtr llm) => CallWithStatus(() => LLMService_Command_Internal(llm));
         public IntPtr LLMClient_Construct(IntPtr llm) => CallWithStatus(() => LLMClient_Construct_Internal(llm));
         public IntPtr LLMClient_Construct_Remote(string url, int port, string apiKey = "", int numRetries = 5) => CallWithStatus(() => LLMClient_Construct_Remote_Internal(url, port, apiKey, numRetries));
