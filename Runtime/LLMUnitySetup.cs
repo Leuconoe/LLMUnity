@@ -54,26 +54,26 @@ namespace LLMUnity
         }
     }
 
-    public class LLMAttribute : PropertyAttribute {}
-    public class LocalRemoteAttribute : PropertyAttribute {}
-    public class RemoteAttribute : PropertyAttribute {}
-    public class LocalAttribute : PropertyAttribute {}
-    public class ModelAttribute : PropertyAttribute {}
-    public class ModelExtrasAttribute : PropertyAttribute {}
-    public class ChatAttribute : PropertyAttribute {}
-    public class LLMUnityAttribute : PropertyAttribute {}
+    public class LLMAttribute : PropertyAttribute { }
+    public class LocalRemoteAttribute : PropertyAttribute { }
+    public class RemoteAttribute : PropertyAttribute { }
+    public class LocalAttribute : PropertyAttribute { }
+    public class ModelAttribute : PropertyAttribute { }
+    public class ModelExtrasAttribute : PropertyAttribute { }
+    public class ChatAttribute : PropertyAttribute { }
+    public class LLMUnityAttribute : PropertyAttribute { }
 
-    public class AdvancedAttribute : PropertyAttribute {}
-    public class LLMAdvancedAttribute : AdvancedAttribute {}
-    public class ModelAdvancedAttribute : AdvancedAttribute {}
-    public class ChatAdvancedAttribute : AdvancedAttribute {}
-    public class Overflow1Attribute : PropertyAttribute {}
-    public class Overflow2Attribute : PropertyAttribute {}
+    public class AdvancedAttribute : PropertyAttribute { }
+    public class LLMAdvancedAttribute : AdvancedAttribute { }
+    public class ModelAdvancedAttribute : AdvancedAttribute { }
+    public class ChatAdvancedAttribute : AdvancedAttribute { }
+    public class Overflow1Attribute : PropertyAttribute { }
+    public class Overflow2Attribute : PropertyAttribute { }
 
 
     public class LLMUnityException : Exception
     {
-        public LLMUnityException(string message = "") : base(message) {}
+        public LLMUnityException(string message = "") : base(message) { }
     }
 
     [Serializable]
@@ -154,6 +154,56 @@ namespace LLMUnity
                  ("Qwen 3 0.6B", "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf", null),
                  ("DeepSeek R1 Distill Qwen 1.5B", "https://huggingface.co/lmstudio-community/DeepSeek-R1-Distill-Qwen-1.5B-GGUF/resolve/main/DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf", null),
              }},
+              {"For Function Calling", new(string, string, string)[]
+             {
+                // Qwen 2.5
+                 ("Qwen 2.5 7B Instruct", "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF/resolve/main/qwen2.5-7b-instruct-q4_k_m.gguf", null),
+                 ("Qwen 2.5 3B Instruct", "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf", null),
+                 ("Qwen 2.5 1.5B Instruct", "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf", null),
+                 ("Qwen 2.5 0.5B Instruct", "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf", null),
+                 
+                // Qwen 3
+                ("Qwen 3 8B", "https://huggingface.co/unsloth/Qwen3-8B-GGUF/resolve/main/Qwen3-8B-Q4_K_M.gguf", null),
+                ("Qwen 3 4B", "https://huggingface.co/unsloth/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf", null),
+                ("Qwen 3 1.7B", "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf", null),
+                ("Qwen 3 0.6B", "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf", null),
+
+                 // Qwen 3.5 models are intentionally excluded for now.
+                 // Current bundled LlamaLib (v2.0.4) does not load "qwen35" architecture.
+             }},
+             // 이전에 테스트 했던 모델이며, 문제가 있어서 사용하지 않음
+             {"_archived", new(string, string, string)[]
+             {
+                 // qwen3.5는 현재 번들된 LlamaLib(v2.0.4)에서 qwen35 아키텍처 미지원
+                 ("Qwen 3.5 4B", "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-Q4_K_M.gguf", null),
+                 ("Qwen 3.5 4B UD Q4", "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-UD-Q4_K_XL.gguf", null),
+                 ("Qwen 3.5 4B UD IQ XXS", "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-UD-IQ2_XXS.gguf", null),
+
+                 ("Qwen 3.5 2B", "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/main/Qwen3.5-2B-Q4_K_M.gguf", null),
+                 ("Qwen 3.5 2B UD Q4", "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/main/Qwen3.5-2B-UD-Q4_K_XL.gguf", null),
+                 ("Qwen 3.5 2B UD IQ XXS", "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/main/Qwen3.5-2B-UD-IQ2_XXS.gguf", null),
+
+                 ("Qwen 3.5 0.8B", "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-Q4_K_M.gguf", null),
+                 ("Qwen 3.5 0.8B UD Q4", "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-UD-Q4_K_XL.gguf", null),
+                 ("Qwen 3.5 0.8B UD IQ XXS", "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-UD-IQ2_XXS.gguf", null),
+
+                 // qwen3은 nonthink를 하드 스위치로 전환 할 수 있지만 chat_template 수정이 필요함
+                 // https://huggingface.co/Qwen/Qwen3-1.7B#switching-between-thinking-and-non-thinking-mode
+                 // https://huggingface.co/lm-kit/qwen-3-0.6b-instruct-gguf 가 Qwen3과 파일명이 똑같아서 이름만 바꾼 저장소
+                 ("Qwen 3 8B Instruct(lm-kit)", "https://huggingface.co/leuconoe/Qwen3-8B-Instruct-GGUF/resolve/main/Qwen3-8B-Q4_K_M-Instruct.gguf", null),
+                 ("Qwen 3 4B Instruct(lm-kit)", "https://huggingface.co/leuconoe/Qwen3-4B-Instruct-GGUF/resolve/main/Qwen3-4B-Q4_K_M-Instruct.gguf", null),
+                 ("Qwen 3 1.7B Instruct(lm-kit)","https://huggingface.co/leuconoe/Qwen3-1.7B-Instruct-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M-Instruct.gguf", null),
+                 ("Qwen 3 0.6B Instruct(lm-kit)","https://huggingface.co/leuconoe/Qwen3-0.6B-Instruct-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M-Instruct.gguf", null),
+
+                // Qwen3 Instruct-2507
+                // 4B만 지원되서 테스트 안함
+                 ("Qwen 3(2507) 4B Instruct Q4", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-Q4_K_M.gguf", null),
+                 ("Qwen 3(2507) 4B Instruct UD Q4", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-UD-Q4_K_XL.gguf", null),
+                 ("Qwen 3(2507) 4B Instruct UD IQ2 XXS", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-UD-IQ2_XXS.gguf", null),
+               
+
+             }
+            },
             {"RAG models", new(string, string, string)[]
              {
                  ("All MiniLM L12 v2", "https://huggingface.co/leliuga/all-MiniLM-L12-v2-GGUF/resolve/main/all-MiniLM-L12-v2.Q4_K_M.gguf", null),
@@ -259,7 +309,7 @@ namespace LLMUnity
         static async Task InitializeOnLoad()
         {
             LoadPlayerPrefs();
-            LlamaLib.libraryExclusion = new List<string>(){CUBLAS ? "tinyblas" : "cublas"};
+            LlamaLib.libraryExclusion = new List<string>() { CUBLAS ? "tinyblas" : "cublas" };
             InitializeOnLoadCommon();
             await DownloadLibrary();
         }
@@ -289,11 +339,11 @@ namespace LLMUnity
         {
             if (File.Exists(savePath) && !overwrite)
             {
-                if(debug) Log($"File already exists at: {savePath}");
+                if (debug) Log($"File already exists at: {savePath}");
             }
             else
             {
-                if(debug) Log($"Downloading {fileUrl} to {savePath}...");
+                if (debug) Log($"Downloading {fileUrl} to {savePath}...");
                 string tmpPath = Path.Combine(Application.temporaryCachePath, Path.GetFileName(savePath));
 
                 ResumingWebClient client = new ResumingWebClient();
@@ -310,7 +360,7 @@ namespace LLMUnity
 #if UNITY_EDITOR
                 AssetDatabase.StopAssetEditing();
 #endif
-                if(debug) Log($"Download complete!");
+                if (debug) Log($"Download complete!");
             }
 
             progressCallback?.Invoke(1f);
@@ -472,26 +522,27 @@ namespace LLMUnity
 
             string hashurl = url + ".sha256";
             string hashPath = zipPath + ".sha256";
-            string hash = File.Exists(hashPath)? File.ReadAllText(hashPath).Trim() : "";
+            string hash = File.Exists(hashPath) ? File.ReadAllText(hashPath).Trim() : "";
             bool same_hash = false;
             try
             {
                 new ResumingWebClient().GetURLFileSize(hashurl); // avoid showing error if url doesn't exist
-                await DownloadFile(hashurl, hashPath+".new", debug: false);
-                same_hash = File.ReadAllText(hashPath+".new").Trim() == hash;
-            } catch {}
+                await DownloadFile(hashurl, hashPath + ".new", debug: false);
+                same_hash = File.ReadAllText(hashPath + ".new").Trim() == hash;
+            }
+            catch { }
 
-            if (!File.Exists(zipPath) || !same_hash)  await DownloadFile(url, zipPath, true, null, SetLibraryProgress);
+            if (!File.Exists(zipPath) || !same_hash) await DownloadFile(url, zipPath, true, null, SetLibraryProgress);
 
             AssetDatabase.StartAssetEditing();
             ExtractInsideDirectory(zipPath, path, $"{libraryName}/runtimes/");
             CreateEmptyFile(setupFile);
             AssetDatabase.StopAssetEditing();
 
-            if (File.Exists(hashPath+".new"))
+            if (File.Exists(hashPath + ".new"))
             {
                 if (File.Exists(hashPath)) File.Delete(hashPath);
-                File.Move(hashPath+".new", hashPath);
+                File.Move(hashPath + ".new", hashPath);
             }
         }
 
