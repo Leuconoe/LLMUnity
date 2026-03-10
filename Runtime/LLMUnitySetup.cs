@@ -156,52 +156,49 @@ namespace LLMUnity
              }},
               {"For Function Calling", new(string, string, string)[]
              {
-                // Qwen 2.5
-                 ("Qwen 2.5 7B Instruct", "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF/resolve/main/qwen2.5-7b-instruct-q4_k_m.gguf", null),
-                 ("Qwen 2.5 3B Instruct", "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf", null),
-                 ("Qwen 2.5 1.5B Instruct", "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf", null),
-                 ("Qwen 2.5 0.5B Instruct", "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf", null),
-                 
-                // Qwen 3
-                ("Qwen 3 8B", "https://huggingface.co/unsloth/Qwen3-8B-GGUF/resolve/main/Qwen3-8B-Q4_K_M.gguf", null),
-                ("Qwen 3 4B", "https://huggingface.co/unsloth/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf", null),
+                //  10/10, 1500ms
                 ("Qwen 3 1.7B", "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf", null),
+                // 10/8, 750 ms
                 ("Qwen 3 0.6B", "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf", null),
-
-                 // Qwen 3.5 models are intentionally excluded for now.
-                 // Current bundled LlamaLib (v2.0.4) does not load "qwen35" architecture.
              }},
              // 이전에 테스트 했던 모델이며, 문제가 있어서 사용하지 않음
              {"_archived", new(string, string, string)[]
              {
-                 // qwen3.5는 현재 번들된 LlamaLib(v2.0.4)에서 qwen35 아키텍처 미지원
-                 ("Qwen 3.5 4B", "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-Q4_K_M.gguf", null),
-                 ("Qwen 3.5 4B UD Q4", "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-UD-Q4_K_XL.gguf", null),
-                 ("Qwen 3.5 4B UD IQ XXS", "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-UD-IQ2_XXS.gguf", null),
+                // Qwen 2.5는 이제 구형
+                ("Qwen 2.5 7B Instruct", "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF/resolve/main/qwen2.5-7b-instruct-q4_k_m.gguf", null),
+                ("Qwen 2.5 3B Instruct", "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf", null),
+                ("Qwen 2.5 1.5B Instruct", "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf", null),
+                ("Qwen 2.5 0.5B Instruct", "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf", null),
 
-                 ("Qwen 3.5 2B", "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/main/Qwen3.5-2B-Q4_K_M.gguf", null),
-                 ("Qwen 3.5 2B UD Q4", "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/main/Qwen3.5-2B-UD-Q4_K_XL.gguf", null),
-                 ("Qwen 3.5 2B UD IQ XXS", "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/main/Qwen3.5-2B-UD-IQ2_XXS.gguf", null),
+                // Qwen 3
+                ("Qwen 3 8B", "https://huggingface.co/unsloth/Qwen3-8B-GGUF/resolve/main/Qwen3-8B-Q4_K_M.gguf", null),
+                ("Qwen 3 4B", "https://huggingface.co/unsloth/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf", null),
 
-                 ("Qwen 3.5 0.8B", "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-Q4_K_M.gguf", null),
-                 ("Qwen 3.5 0.8B UD Q4", "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-UD-Q4_K_XL.gguf", null),
-                 ("Qwen 3.5 0.8B UD IQ XXS", "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-UD-IQ2_XXS.gguf", null),
+                // 10/10, 1700ms
+                ("Qwen 3 1.7B UD Q4", "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-UD-Q4_K_XL.gguf", null),
+                ("Qwen 3 1.7B UD IQ XXS", "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-UD-IQ2_XXS.gguf", null),
+                ("Qwen 3 0.6B UD Q4", "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-UD-Q4_K_XL.gguf", null),
+                ("Qwen 3 0.6B UD IQ XXS", "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-UD-IQ2_XXS.gguf", null),
+                
+                // qwen3은 nonthink를 하드 스위치로 전환 할 수 있지만 chat_template 수정이 필요함
+                // https://huggingface.co/Qwen/Qwen3-1.7B#switching-between-thinking-and-non-thinking-mode
+                // https://huggingface.co/lm-kit/qwen-3-0.6b-instruct-gguf 가 Qwen3과 파일명이 똑같아서 이름만 바꾼 저장소
+                ("Qwen 3 8B Instruct(lm-kit)", "https://huggingface.co/leuconoe/Qwen3-8B-Instruct-GGUF/resolve/main/Qwen3-8B-Q4_K_M-Instruct.gguf", null),
+                ("Qwen 3 4B Instruct(lm-kit)", "https://huggingface.co/leuconoe/Qwen3-4B-Instruct-GGUF/resolve/main/Qwen3-4B-Q4_K_M-Instruct.gguf", null),
+                // 10/8, 2000ms
+                ("Qwen 3 1.7B Instruct(lm-kit)","https://huggingface.co/leuconoe/Qwen3-1.7B-Instruct-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M-Instruct.gguf", null),
+                ("Qwen 3 0.6B Instruct(lm-kit)","https://huggingface.co/leuconoe/Qwen3-0.6B-Instruct-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M-Instruct.gguf", null),
 
-                 // qwen3은 nonthink를 하드 스위치로 전환 할 수 있지만 chat_template 수정이 필요함
-                 // https://huggingface.co/Qwen/Qwen3-1.7B#switching-between-thinking-and-non-thinking-mode
-                 // https://huggingface.co/lm-kit/qwen-3-0.6b-instruct-gguf 가 Qwen3과 파일명이 똑같아서 이름만 바꾼 저장소
-                 ("Qwen 3 8B Instruct(lm-kit)", "https://huggingface.co/leuconoe/Qwen3-8B-Instruct-GGUF/resolve/main/Qwen3-8B-Q4_K_M-Instruct.gguf", null),
-                 ("Qwen 3 4B Instruct(lm-kit)", "https://huggingface.co/leuconoe/Qwen3-4B-Instruct-GGUF/resolve/main/Qwen3-4B-Q4_K_M-Instruct.gguf", null),
-                 ("Qwen 3 1.7B Instruct(lm-kit)","https://huggingface.co/leuconoe/Qwen3-1.7B-Instruct-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M-Instruct.gguf", null),
-                 ("Qwen 3 0.6B Instruct(lm-kit)","https://huggingface.co/leuconoe/Qwen3-0.6B-Instruct-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M-Instruct.gguf", null),
+                // qwen3.5는 현재 번들된 LlamaLib(v2.0.4)에서 동작 안함, llama.cpp 업데이트 후 테스트 해봤으나 성능이 좋지 않음.
+                ("Qwen 3.5 4B", "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-Q4_K_M.gguf", null),
+                ("Qwen 3.5 2B", "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/main/Qwen3.5-2B-Q4_K_M.gguf", null),
+                ("Qwen 3.5 0.8B", "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-Q4_K_M.gguf", null),
 
                 // Qwen3 Instruct-2507
                 // 4B만 지원되서 테스트 안함
-                 ("Qwen 3(2507) 4B Instruct Q4", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-Q4_K_M.gguf", null),
-                 ("Qwen 3(2507) 4B Instruct UD Q4", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-UD-Q4_K_XL.gguf", null),
-                 ("Qwen 3(2507) 4B Instruct UD IQ2 XXS", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-UD-IQ2_XXS.gguf", null),
-               
-
+                ("Qwen 3(2507) 4B Instruct Q4", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-Q4_K_M.gguf", null),
+                ("Qwen 3(2507) 4B Instruct UD Q4", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-UD-Q4_K_XL.gguf", null),
+                ("Qwen 3(2507) 4B Instruct UD IQ2 XXS", "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-UD-IQ2_XXS.gguf", null),
              }
             },
             {"RAG models", new(string, string, string)[]
