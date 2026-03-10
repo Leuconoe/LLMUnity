@@ -610,7 +610,7 @@ namespace LLMUnity
             List<ModelEntry> modelEntriesBuild = new List<ModelEntry>();
             foreach (ModelEntry modelEntry in modelEntries)
             {
-                if (!modelEntry.includeInBuild) continue;
+                //if (!modelEntry.includeInBuild) continue;
                 modelEntriesBuild.Add(modelEntry.OnlyRequiredFields());
             }
             string json = JsonUtility.ToJson(new LLMManagerStore
